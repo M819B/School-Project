@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مختبر الألوان الذكي</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Arial', sans-serif;
+            background-color: lightblue; /* اللون الافتراضي */
+            transition: background-color 0.1s ease;
+        }
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+        p {
+            font-size: 1.5rem;
+        }
+    </style>
+</head>
+<body>
+
+    <script>
+        // 1. الترحيب الأولي وتنبيه السيطرة على المتصفح
+        alert("مرحباً بك في عالم البرمجة! لقد سيطرت الآن على المتصفح.");
+
+        // 2. طلب اسم المبرمج
+        let name = prompt("ما هو اسمك أيها المبرمج؟");
+        
+        // التحقق إذا لم يدخل المستخدم اسماً
+        if (name == null || name == "") {
+            name = "(اكتب اسمك هنا)";
+        }
+
+        // 3. إعداد محتوى الصفحة (العنوان والرسالة)
+        document.body.innerHTML = `
+            <h1>أهلاً بك يا ${name} في مستقبل البرمجة! 🚀</h1>
+            <h2 style="text-align:center;">مختبر الألوان الذكي</h2>
+            <p>حرك الماوس في أي مكان لتغيير لون الصفحة!</p>
+        `;
+
+        // 4. منطق تغيير الألوان عند تحريك الماوس
+        document.onmousemove = function(e) {
+            // حساب الألوان بناءً على حركة الماوس
+            let x = e.clientX % 255;
+            let y = e.clientY % 255;
+            
+            // تطبيق اللون الجديد
+            document.body.style.backgroundColor = "rgb(" + x + "," + y + ", 200)";
+        };
+
+        // 5. رسالة النجاح في الكونسول
+        console.log("تم تنفيذ الكود بنجاح بواسطة طلاب الصف الثالث إعدادي");
+    </script>
+</body>
+</html>
